@@ -68,10 +68,11 @@ def get_stores(postcode='BN16 3RT', radius='200'):
             'name': f'{res["admin_ward"]} {res["incode"]}',
             'postcode': res['postcode'],
         } for res in sorted_response]
+
+        return stores
     else:
         print(json.loads(response.content))
-
-    return stores
+        return None
 
 
 with open('stores.json') as f:
